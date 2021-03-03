@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  二进制中1的个数
+
+        function getNums(n) {
+            let count = 0,
+                flag = 1;
+            // while (flag) {
+            //     if (n & flag) {
+            //         count++;
+            //     }
+            //     flag = flag << 1;
+            // }
+            while (n) {
+                ++count;
+                n = (n - 1) & n;
+            }
+            return count;
+        }
+
+        const result = getNums(10);
+        console.log(result);
+    </script>
+</body>
+
+</html>

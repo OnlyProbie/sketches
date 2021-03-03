@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 
+        var addTwoNumbers = function (l1, l2) {
+            if (l1 == null || l2 == null) {
+                return null;
+            }
+            let node = new ListNode(null),
+                temp = node,
+                n = 0,
+                sum = 0;
+            while (l1 || l2) {
+                const n1 = l1 ? l1.val : 0;
+                const n2 = l2 ? l2.val : 0;
+                sum = n1 + n2 + n;
+                n = parseInt(sum / 10);
+                temp.next = new ListNode(sum % 10);
+                temp = temp.next;
+                if (l1) l1 = l1.next;
+                if (l2) l2 = l2.next;
+            }
+            if (n > 0) temp.next = new ListNode(n);
+            return node.next;
+        };
+    </script>
+</body>
+
+</html>

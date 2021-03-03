@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>树的广度优先搜索</title>
+</head>
+
+<body>
+    <script>
+        // 树的广度优先搜索
+        function Node(value) {
+            this.value = value;
+            this.childs = [];
+        }
+
+        var a = new Node('a');
+        var b = new Node('b');
+        var c = new Node('c');
+        var d = new Node('d');
+        var e = new Node('e');
+        var f = new Node('f');
+
+        a.childs.push(b);
+        a.childs.push(c);
+        a.childs.push(d);
+        c.childs.push(e);
+        c.childs.push(f);
+
+        // 思路是将所有的点都按照顺序添加到数组中，每一层都是一个新的数组
+        function breathSearch(roots, target) {
+            if (roots == null || roots.length == 0) return false;
+            var childs = [];
+            for (var i = 0; i < roots.length; i++) {
+                if (roots[i].value == target) {
+                    return true;
+                } else {
+                    childs = childs.concat(roots[i].childs);
+                }
+            }
+            return breathSearch(childs, target);
+        }
+
+        console.log(breathSearch([a], 'n'));
+    </script>
+</body>
+
+</html>

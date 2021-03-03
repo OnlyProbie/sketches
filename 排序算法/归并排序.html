@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>归并排序</title>
+</head>
+
+<body>
+    <script>
+        // 归并排序
+
+        // 从中间开始，将数组通过二分法的形式，分为一个个单元素，然后两两比较，合并排序
+
+        var arr = [4, 1, 6, 9, 3, 2, 8, 7, 5];
+
+        function sort(arr) {
+            if (arr == null || arr.length <= 1) return arr;
+            let mid = Math.floor(arr.length / 2);
+            let left = sort(arr.slice(0, mid));
+            let right = sort(arr.slice(mid, arr.length));
+            return merge(left, right);
+
+            function merge(arr1, arr2) {
+                let result = [],
+                    left = 0,
+                    right = 0;
+                while (left < arr1.length && right < arr2.length) {
+                    if (arr1[left] < arr2[right]) {
+                        result.push(arr1[left]);
+                        left++;
+                    } else {
+                        result.push(arr2[right]);
+                        right++;
+                    }
+                }
+                result = result.concat(arr1.slice(left, arr1.length), arr2.slice(right, arr2.length));
+                return result;
+            }
+        }
+
+        console.log(sort(arr));
+    </script>
+</body>
+
+</html>

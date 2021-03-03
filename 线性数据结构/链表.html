@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>一维数据结构 --- 链表</title>
+</head>
+
+<body>
+    <script>
+        /**
+            注意：
+                1. 空间上不连续
+                2. 没存放一个值，都要多开销引用空间
+                3. 传递链表，必须传递链表的根节点
+                    --- 每一个节点都认为自己是根节点
+
+            优点：
+                1. 只要内存足够大，就能存的下，不用担心空间碎片的问题
+                2. 链表的添加和删除非常的容易
+                    链表在一定程度上解决了数组的缺点
+            缺点：
+                1. 查询的速度慢
+                2. 链表每个节点都需要创建一个指向下一个节点的引用，浪费一些空间
+                    当节点内数据越多的时候，引用所开销的影响越小
+        */
+
+
+        // var c = {
+        //     value: 3,
+        //     next: null
+        // }
+        // var b = {
+        //     value: 2,
+        //     next: c
+        // }
+        // var a = {
+        //     value: 1,
+        //     next: b
+        // }
+
+        // console.log(a.next == b) // true
+
+
+
+        // 链表结构创建
+        function Node(value) {
+            this.value = value; // 当前节点的值
+            this.next = null; // 当前节点指向的下一个节点
+        }
+        // 输出链表
+        function printLink(root) {
+            if (root) {
+                console.log(root.value);
+                printLink(root.next);
+            }
+        }
+        // 输出链表长度
+        function countLink(root) {
+            if (root == null) return 0;
+            return countLink(root.next) + 1;
+        }
+        // 获取链表某个下标的元素
+        function getValue(root, index) {
+            function _getValue(root, i) {
+                if (root == null) return null;
+                if (i == index) return root;
+                return _getValue(root.next, i + 1);
+            }
+            return _getValue(root, 0);
+        }
+        // 链表的逆置
+        function nizhi(root) {
+            // 代表当前是倒数第二个节点
+            if (root.next.next == null) {
+                root.next.next = root; // 让最后一个节点指向自己
+                return root.next;
+            } else {
+                var result = nizhi(root.next);
+                root.next.next = root;
+                root.next = null;
+                return result;
+            }
+        }
+        // 设置链表某个位置的数据
+        function setValue(root, index, value) {
+            function _setValue(root, i) {
+                if (root == null) return;
+                if (i == index) root.value = value;
+                else _setValue(root.next, i + 1);
+            }
+            return _setValue(root, 0);
+        }
+        // 给链表添加数据
+        function addNode(root, value) {
+            if (root == null) {
+                return;
+            } else if (root.next == null) {
+                root.next = new Node(value);
+            } else {
+                addNode(root.next, value);
+            }
+        }
+        // 给链表插入数据
+        // node：表示要插入数据的前一个节点
+        function insertNode(node, value) {
+            var newNode = new Node(value);
+            newNode.next = root.next;
+            root.next = newNode;
+        }
+        // 删除链表某个位置的数据
+        function delNode(root, index) {
+            if (root == null) return null;
+            if (getValue(root, index) == null) {
+                return null;
+            }
+
+            function _delNode(i) {
+                if (i == index) {
+                    var nextNode = getValue(root, i + 1);
+                    var preNode = getValue(root, i - 1);
+                    if (nextNode) {
+                        preNode.next = nextNode;
+                    } else {
+                        preNode.next = null;
+                    }
+                    return root;
+                } else {
+                    return _delNode(i + 1);
+                }
+            }
+            if (index == 0) {
+                var newRoot = root.next;
+                root.next = null;
+                return newRoot;
+            } else if (index < 0) {
+                return null;
+            } else {
+                return _delNode(0);
+            }
+        }
+
+
+        var a = new Node(1);
+        var b = new Node(2);
+        var c = new Node(3);
+        var d = new Node(4);
+        a.next = b;
+        b.next = c;
+        c.next = d;
+        d.next = null;
+        console.log(a.next.next.next.value);
+        console.log('========');
+        printLink(a);
+        console.log('========');
+        console.log(countLink(a));
+        console.log('========');
+        console.log(getValue(a, 3));
+        console.log('========');
+        setValue(a, 2, 'a');
+        console.log('========');
+        printLink(a);
+        console.log('========');
+        addNode(a, 90);
+        console.log('========');
+        printLink(a);
+        console.log('========');
+        console.log(delNode(a, -2));
+    </script>
+</body>
+
+</html>

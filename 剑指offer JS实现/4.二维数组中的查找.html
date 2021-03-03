@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 二维数组中的查找
+
+        var arr = [
+            [1, 2, 3, 4],
+            [2, 3, 4, 5],
+            [4, 5, 6, 7],
+            [5, 6, 7, 8]
+        ]
+
+        // var obj = [123];
+
+        function findTarget(arr, target) {
+            if (arr == null || arr[0] == null || arr[0].length === 0 || arr.length === 0) {
+                return false;
+            }
+            let row = 0;
+            let column = arr[0].length - 1;
+            const len = arr.length;
+            while (row < len && column >= 0) {
+                if (arr[row][column] > target) {
+                    // console.log('column:', arr[row][column]);
+                    column--;
+                } else if (arr[row][column] < target) {
+                    // console.log('row:', arr[row][column]);
+                    row++;
+                } else {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        const result = findTarget(arr, 8);
+        console.log(result);
+    </script>
+</body>
+
+</html>

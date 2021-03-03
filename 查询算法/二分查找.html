@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>二分查找</title>
+</head>
+
+<body>
+    <script>
+        // 二分查找
+
+        // 如果要查找的序列是一个已经排好序的序列
+        // 查找中间的值，和目标值比较，如果比目标值大，则在较小数的区间查找
+        // 找到中间的值，和目标值比较，……
+        // 重复以上步骤
+
+        var arr = [4, 1, 6, 9, 3, 2, 8, 7, 5];
+
+        function exchange(arr, a, b) {
+            var temp = arr[a];
+            arr[a] = arr[b];
+            arr[b] = temp;
+        }
+
+        // 排序
+        function quickSort(arr, begin, end) {
+            if (arr == null || arr.length == 0) return;
+            if (begin >= end - 1) return;
+            var left = begin;
+            var right = end;
+            do {
+                do left++; while (left < right && arr[left] < arr[begin])
+                do right--; while (left < right && arr[right] > arr[begin]);
+                if (left < right) exchange(arr, left, right);
+            } while (left < right);
+            var exchangePoint = left == right ? right - 1 : right;
+            exchange(arr, begin, exchangePoint);
+            quickSort(arr, begin, exchangePoint);
+            quickSort(arr, exchangePoint + 1, end);
+            return arr;
+        }
+
+        // 查找
+        function binarySearch(arr, target) {
+            if (arr == null || arr.length == 0) return false;
+            var minIndex = 0;
+            var maxIndex = arr.length - 1;
+            while (minIndex <= maxIndex) {
+                var mid = Math.floor((minIndex + maxIndex) / 2);
+                if (arr[mid] == target) {
+                    return true;
+                } else if (arr[mid] > target) {
+                    maxIndex = mid - 1;
+                } else {
+                    minIndex = mid + 1;
+                }
+            }
+            return false;
+        }
+
+        var newArr = quickSort(arr, 0, arr.length);
+
+        var result = binarySearch(newArr, 10);
+        console.log(result);
+    </script>
+</body>
+
+</html>

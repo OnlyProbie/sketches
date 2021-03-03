@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>普利姆算法 --- 加点法</title>
+</head>
+
+<body>
+    <script>
+        // 任选一个点为起点
+        // 找到以当前选中点为起点路径最短的边
+        // 如果这个边的另一端没有被联通进来，那么就联结
+        // 如果这个边的另一端已经被链接起来，则看倒数第二短的边
+        // 重复上述过程，直到所有的点都联通为止
+
+
+        // 对于两个节点之间没有边的用max来表示
+        var max = 1000000;
+        // 点集合
+        var pointSet = [];
+        // 边集合
+        var distance = [
+            [0, 4, 7, max, max],
+            [4, 0, 8, 6, max],
+            [7, 8, 0, 5, max],
+            [max, 6, 5, 0, 7],
+            [max, max, max, 7, 0]
+        ];
+
+        function Node(value) {
+            this.value = value;
+            this.neighboer = [];
+        }
+
+        var a = new Node('A');
+        var b = new Node('B');
+        var c = new Node('C');
+        var d = new Node('D');
+        var e = new Node('E');
+
+        pointSet.push(a);
+        pointSet.push(b);
+        pointSet.push(c);
+        pointSet.push(d);
+        pointSet.push(e);
+
+        // 获取传递的节点在点集合中的位置
+        function getIndex(str) {
+            for (var i = 0; i < pointSet.length; i++) {
+                if (str == pointSet[i].value) return i;
+            }
+            return -1;
+        }
+
+        // 需要传入点的集合，边的集合，当前已经连接的集合
+        // 此方法，根据当前已经有的节点来进行判断，获取到距离最短的点
+        function getMinDisNode(pointSet, distance, nowPointSet) {
+            var fromNode = null; // 线段的起点
+            var minDisNode = null; //线段的终点
+            var minDis = max;
+
+            // 根据当前已有的这些点为起点，依次判断链接其他的点的距离是多少
+            for (var i = 0; i < nowPointSet.length; i++) {
+                // 获取当前节点的序号
+                var pointIndex = getIndex(nowPointSet[i].value);
+                for (var j = 0; j < distance[pointIndex].length; j++) {
+                    var thisNode = pointSet[j]
+                    if (nowPointSet.indexOf(thisNode) < 0 // 不能是已经链接的点
+                        &&
+                        distance[pointIndex][j] < minDis) // 点之间的距离是目前最短
+                    {
+                        // 线段的起点就是开始传入的点
+                        fromNode = nowPointSet[i];
+                        // 线段的终点就是当前对比找到的节点
+                        minDisNode = thisNode;
+                        // 最小的距离
+                        minDis = distance[pointIndex][j];
+                    }
+                }
+            }
+            // 线段两端的节点互为邻居节点
+            fromNode.neighboer.push(minDisNode);
+            minDisNode.neighboer.push(fromNode);
+            // 返回与线段终点相连的节点集合
+            return minDisNode;
+        }
+
+        function prim(pointSet, distance, start) {
+            var nowPointSet = [];
+            nowPointSet.push(start);
+            // 根据当前已有的节点，获取最小的边
+            while (true) {
+                var minDisNode = getMinDisNode(pointSet, distance, nowPointSet);
+                nowPointSet.push(minDisNode);
+                // 判断是否已经包含了所有的点
+                // 即节点集合长度和最终生成的结果集合长度相等
+                if (nowPointSet.length == pointSet.length) {
+                    break;
+                }
+            }
+        }
+
+        prim(pointSet, distance, pointSet[2]);
+        console.log(pointSet);
+    </script>
+</body>
+
+</html>

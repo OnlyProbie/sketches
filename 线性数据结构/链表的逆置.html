@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>链表的逆置</title>
+</head>
+
+<body>
+    <script>
+        //  链表的逆置 -- 先找到最后的节点
+
+        function Node(value) {
+            this.value = value; // 当前节点的值
+            this.next = null; // 当前节点指向的下一个节点
+        }
+
+        var node1 = new Node(1);
+        var node2 = new Node(2);
+        var node3 = new Node(3);
+        var node4 = new Node(4);
+        var node5 = new Node(5);
+
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node5;
+
+        function nizhi(root) {
+            // 代表当前是倒数第二个节点
+            if (root.next.next == null) {
+                root.next.next = root; // 让最后一个节点指向自己
+                return root.next;
+            } else {
+                var result = nizhi(root.next);
+                root.next.next = root;
+                root.next = null;
+                return result;
+            }
+        }
+        var newRoot = nizhi(node1);
+        // 递归遍历
+        function bianliLink(root) {
+            if (root == null) return;
+            console.log(root.value);
+            bianliLink(root.next);
+        }
+        bianliLink(newRoot);
+    </script>
+</body>
+
+</html>

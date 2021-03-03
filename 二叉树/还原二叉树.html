@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>还原二叉树 --- 代码实现</title>
+</head>
+
+<body>
+    <script>
+        // 代码实现
+        // 给出前序中序还原二叉树，写出后序遍历
+        var qian = ['a', 'c', 'f', 'g', 'b', 'd', 'e'];
+        var zhong1 = ['f', 'c', 'g', 'a', 'd', 'b', 'e'];
+
+        function Node1(value) {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
+
+        function restore1(qian, zhong) {
+            // 严谨性判断
+            if (qian == null || zhong == null || qian.length == 0 || zhong.length == 0 || qian.length != zhong.length)
+                return null;
+            var root = new Node1(qian[0]);
+            var index = zhong.indexOf(root.value); // 找到根节点在中序遍历中的位置
+            var qianLeft = qian.slice(1, index + 1); // 找到前序遍历的左子树
+            var qianRight = qian.slice(index + 1, qian.length); // 找到前序遍历的右子树
+            var zhongLeft = zhong.slice(0, index); // 找到中序遍历的左子树
+            var zhongRight = zhong.slice(index + 1, zhong.length); // 找到中序遍历的右子树
+            root.left = restore1(qianLeft, zhongLeft); // 根据前序中序的左子树，还原左子树
+            root.right = restore1(qianRight, zhongRight); // 根据前序中序的右子树，还原右子树
+            return root;
+        }
+
+        console.log(restore1(qian, zhong1));
+
+        // 给出后序中序还原二叉树，写出前序遍历
+
+        var zhong2 = ['f', 'c', 'g', 'a', 'd', 'b', 'e'];
+        var hou = ['f', 'g', 'c', 'd', 'e', 'b', 'a'];
+
+        function Node2(value) {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
+
+        function restore2(zhong, hou) {
+            if (zhong == null || hou == null || zhong.length == 0 || hou.length == 0 || zhong.length != hou.length)
+                return null;
+            var root = new Node2(hou[hou.length - 1]);
+            var index = zhong.indexOf(root.value);
+            var houLeft = hou.slice(0, index);
+            var houRight = hou.slice(index, hou.length - 1);
+            var zhongLeft = zhong.slice(0, index);
+            var zhongRight = zhong.slice(index + 1, zhong.length);
+            root.left = restore2(zhongLeft, houLeft);
+            root.right = restore2(zhongRight, houRight);
+            return root;
+        }
+
+        console.log(restore2(zhong2, hou));
+    </script>
+</body>
+
+</html>

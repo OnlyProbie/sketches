@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 翻转单词的字符顺序
+
+        let str = "Let's take LeetCode contest";
+
+        function turnStr(str) {
+            if (str === null || str.length === 0) {
+                return str;
+            }
+            let result = [];
+            result = str.split(' ');
+            for (let i = 0; i < result.length; i++) {
+                result[i] = result[i].split('').reverse().join('');
+            }
+            return result.join(' ');
+        }
+        const result = turnStr(str);
+        console.log(result);
+    </script>
+</body>
+
+</html>

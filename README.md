@@ -1,2 +1,17 @@
-# sketches
-Be a literary youth
+# 数据结构和算法（JavaScript）
+
+1. 线性数据结构（数组，链表）
+2. 栈和队列
+3. 排序算法（冒泡、选择、快排、归并）
+4. 查询算法
+5. 二叉树
+6. 树
+7. 图
+8. 动态规划
+9. 贪心算法
+
+# 面试
+
+# LeetCode
+
+# 剑指 offer (JavaScript 实现)

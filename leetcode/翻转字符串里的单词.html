@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 翻转字符串里的单词
+
+        let s = "a good   example";
+
+        function turnWords(s) {
+            if (s == null || s.length === 0) {
+                return s;
+            }
+            return s.trim().split(/\s+/g).reverse().join(' ');
+        }
+
+        const result = turnWords(s);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 找出数组中重复的数字
+
+        var arr = [2, 3, 4, 5, 6, 2, 2, 3, 3, 4, 2, 4, 2, 3, 4, 2, 4];
+
+        /*
+            时间复杂度 O(n)
+        */
+        function searchRepeat(arr) {
+            if (arr == null) return [];
+            let result = [];
+            let obj = {};
+            arr.forEach(item => {
+                if (obj[item]) {
+                    if (result.indexOf(item) == -1) {
+                        result.push(item);
+                    }
+                } else {
+                    obj[item] = 1;
+                }
+            })
+            return result;
+        }
+
+        var findRepeatNumber = function (nums) {
+            if (nums == null || nums.length === 0) {
+                return;
+            }
+            let obj = {};
+            for (let i = 0; i < nums.length; i++) {
+                if (obj[nums[i]]) {
+                    return nums[i];
+                } else {
+                    obj[nums[i]] = 1;
+                }
+            }
+
+        };
+        // console.log(searchRepeat(arr));
+        console.log(findRepeatNumber(arr));
+    </script>
+</body>
+
+</html>

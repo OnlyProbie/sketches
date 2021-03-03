@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 时间复杂度为O(n)
+        // 达到空间复杂度为O(1)的程度
+        var removeDuplicates = function (nums) {
+            if (nums == null || nums.length == 0) return;
+            for (var i = 0; i < nums.length - 1; i++) {
+                if (nums[i] === nums[i + 1]) {
+                    nums.splice(i, 1);
+                    i--;
+                }
+            }
+            console.log(nums);
+            return nums.length
+        };
+        var arr = [1, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 5];
+        console.log(removeDuplicates(arr));
+    </script>
+</body>
+
+</html>

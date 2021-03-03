@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>二叉树的遍历</title>
+</head>
+
+<body>
+    <script>
+        // 传递二叉树需要传递根节点
+
+        function Node(value) {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
+
+        var a = new Node('a');
+        var b = new Node('b');
+        var c = new Node('c');
+        var d = new Node('d');
+        var e = new Node('e');
+        var f = new Node('f');
+        var g = new Node('g');
+
+        a.left = c;
+        a.right = b;
+        c.left = f;
+        c.right = g;
+        b.left = d;
+        b.right = e;
+
+        // 二叉树的遍历 
+
+        // 前序遍历
+        //  --- 当前的，左边的，右边的
+
+        function f1(root) {
+            if (root == null) return;
+            console.log(root.value);
+            f1(root.left);
+            f1(root.right);
+        }
+        f1(a); // a, c, f, g, b, d, e
+
+        // 中序遍历
+        //  --- 左边的，当前的，右边的
+
+        function f2(root) {
+            if (root == null) return;
+            f2(root.left);
+            console.log(root.value);
+            f2(root.right);
+        }
+        f2(a); // f, c, g, a, d, b, e
+
+        // 后序遍历
+        //  --- 左边的，右边的，当前的
+
+        function f3(root) {
+            if (root == null) return;
+            f3(root.left);
+            f3(root.right);
+            console.log(root.value);
+        }
+        f3(a); // f, g, c, d, e, b, a
+
+        // 层序遍历 
+
+        function f4(root) {
+            if (root == null) return;
+            let result = [],
+                nodeList = [];
+            nodeList.push(root);
+            while (nodeList.length) {
+                let node = nodeList.shift();
+                result.push(node);
+                if (node.left) {
+                    nodeList.push(node.left);
+                }
+                if (node.right) {
+                    nodeList.push(node.right);
+                }
+            }
+            return result;
+        }
+
+        console.log(f4(a));
+
+
+        // 非递归实现遍历
+
+        // 前序遍历
+
+        function func1(root) {
+            if (root === null) return [];
+            const nodeArr = [];
+            const res = [];
+            nodeArr.push(root);
+
+            while (nodeArr.length) {
+                const node = nodeArr.pop();
+                res.push(node.value);
+                if (node.right) {
+                    nodeArr.push(node.right);
+                }
+                if (node.left) {
+                    nodeArr.push(node.left);
+                }
+            }
+            return res;
+        }
+        console.log(func1(a));
+
+        // 中序遍历
+        function func2(root) {
+            if (root === null) return [];
+            const nodeArr = [];
+            const res = [];
+            while (root !== null || nodeArr.length > 0) {
+                while (root !== null) {
+                    nodeArr.push(root);
+                    root = root.left;
+                }
+                root = nodeArr.pop();
+                res.push(root.value);
+                root = root.right;
+            }
+            return res;
+        }
+        // console.log(func2(a));
+
+        // 后序遍历
+
+        function func3(root) {
+            if (root == null) return [];
+            const nodeArr = [];
+            const res = [];
+            nodeArr.push(root);
+            while (nodeArr.length > 0) {
+                const node = nodeArr.pop();
+                res.unshift(node.value);
+                if (node.left) {
+                    nodeArr.push(node.left);
+                }
+                if (node.right) {
+                    nodeArr.push(node.right);
+                }
+            }
+            return res;
+        }
+        console.log(func3(a));
+    </script>
+</body>
+
+</html>

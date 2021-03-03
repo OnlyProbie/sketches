@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 斐波那契数列
+        // 0 1 1 2 3 5 8 13 21 ...
+        var temp = 0;
+        var temp1 = 0;
+
+        function func(n) {
+            if (n <= 0) return 0;
+            if (n == 1) return 1;
+            if (n >= 2) {
+                temp++;
+                return func(n - 1) + func(n - 2);
+            }
+        }
+
+        function feibo(n) {
+            let table = [];
+
+            function _feibo(n) {
+                let result;
+                if (table[n]) return table[n];
+                if (n <= 0) {
+                    result = 0;
+                }
+                if (n == 1) {
+                    result = 1;
+                }
+                if (n >= 2) {
+                    temp1++;
+                    result = _feibo(n - 1) + _feibo(n - 2);
+                }
+                table[n] = result;
+                return result;
+            }
+            return _feibo(n);
+        }
+        // console.log(feibo(45));
+        // console.log(func(45));
+        // console.log(temp);
+        // console.log(temp1);
+
+        var map = new Map();
+        map.set(2, 0);
+        if (map.get(3)) {
+            console.log(23423423);
+        }
+        console.log(map.get(3))
+        if ([] == false) {
+            console.log(1)
+        }
+        if ({} == false) {
+            console.log(2);
+        }
+
+
+        if ([]) {
+            console.log(3);
+        }
+        if ([1] == [1]) {
+            console.log(4);
+        }
+    </script>
+</body>
+
+</html>

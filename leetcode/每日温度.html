@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 每日温度
+
+        var temperatures = [73, 74, 75, 71, 69, 72, 76, 73];
+
+        // 使用链表实现栈结构
+
+        // function LinkList(value) {
+        //     this.value = value;
+        //     this.next = null
+        // }
+
+        // function Stack() {
+        //     this.head = null;
+        //     Stack.prototype.pop = function () {
+        //         this.head = this.head.next;
+        //     }
+        //     Stack.prototype.push = function (value) {
+        //         let linklistNode = new LinkList(value);
+        //         linklistNode.next = this.head;
+        //         this.head = linklistNode;
+        //     }
+        // }
+
+
+
+        var dailyTemperatures = function (T) {
+
+            if (T == null || T.length === 0) {
+                return [];
+            }
+            let results = new Array(T.length).fill(0),
+                len = T.length,
+                stack = [];
+            for (let i = 0; i < len - 1; i++) {
+                while (stack.length && T[i] > T[stack[stack.length - 1]]) {
+                    let index = stack.pop();
+                    results[index] = i - index;
+                }
+                stack.push(i);
+            }
+            return results;
+        }
+
+        const results = dailyTemperatures(temperatures);
+        console.log(results);
+    </script>
+</body>
+
+</html>

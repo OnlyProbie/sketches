@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // js实现全排列
+
+
+        let str = ['a', 'b', 'c'];
+
+        function allSort(str) {
+            if (str == null || str.length === 0) {
+                return [];
+            }
+            let result = [];
+            if (str.length === 1) {
+                return [str];
+            } else {
+                let pre = allSort(str.slice(1));
+                for (let i = 0; i < pre.length; i++) {
+                    for (let j = 0; j < pre[i].length + 1; j++) {
+                        let temp = pre[i].slice(0, j) + str[0] + pre[i].slice(j);
+                        result.push(temp);
+                    }
+                }
+                return result;
+            }
+        }
+        const result = allSort(str);
+        console.log(result);
+    </script>
+</body>
+
+</html>

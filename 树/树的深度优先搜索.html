@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>树的深度优先搜索</title>
+</head>
+
+<body>
+    <script>
+        // 树的深度优先搜索
+
+        function Node(value) {
+            this.value = value;
+            this.childs = [];
+        }
+
+        var a = new Node('a');
+        var b = new Node('b');
+        var c = new Node('c');
+        var d = new Node('d');
+        var e = new Node('e');
+        var f = new Node('f');
+
+        a.childs.push(d);
+        a.childs.push(b);
+        a.childs.push(c);
+        d.childs.push(e);
+        d.childs.push(f);
+
+        function deepSearch(root, target) {
+            if (root == null) return false;
+            if (root.value == target) return true;
+            var result = null;
+            for (var i = 0; i < root.childs.length; i++) {
+
+                if (deepSearch(root.childs[i], target)) {
+                    return true;
+                }
+
+                // result |= deepSearch(root.childs[i], target);
+            }
+
+            return false;
+            // return result ? true : false;
+        }
+        // deepSearch(a, 'c');
+        console.log(deepSearch(a, 'n'));
+    </script>
+</body>
+
+</html>

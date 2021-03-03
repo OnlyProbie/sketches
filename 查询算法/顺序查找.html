@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>顺序查找</title>
+</head>
+
+<body>
+    <script>
+        // 顺序查找
+
+        var arr = [4, 1, 6, 9, 3, 2, 8, 7, 5];
+
+        function inOrderSearch(arr, target) {
+            if (arr == null || arr.length == 0) return null;
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] === tartget) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    </script>
+</body>
+
+</html>
