@@ -1,1 +1,2 @@
-> arithmetic
+> [arithmetic](./structure/index.md)
+
