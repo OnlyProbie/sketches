@@ -21,6 +21,7 @@
     <!-- Menu -->
     <ul class="hide">
         {% assign name_page = "" %}
+        {% assign authors = site.data.authors[include.author] %}
 
         {% for page in site.pages %}
             {% unless page.title == null or page.hide or name_page contains page.title %}
@@ -35,9 +36,8 @@
             {% assign name_page = page.title | append: name_page %}
         {% endfor %}
 
-        {% assign authors = site.data.authors[include.author] %}
         <li class="separator"> | </li>
-        <li><a class="fab fa-github fa-stack-1x fa-inverse" aria-hidden="true" href="{{ authors.url }}"></a></li>
+        <li><a class="fab fa-github fa-inverse" aria-hidden="true" href="{{ authors.url }}"></a></li>
 
         {% if site.color_theme == 'auto' %}
         <li class="separator"> | </li>
