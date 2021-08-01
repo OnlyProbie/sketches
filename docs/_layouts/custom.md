@@ -13,7 +13,7 @@ layout: default
     </header>
     <section class="post-content">{{ content }}</section>
 
-    <div style="display: inline-block;">
+    <div style="display: inline-block;margin-top: 40px">
         <!-- Social media shares -->
         {% if include.is_post %} {% include social/share_buttons.html %} {% endif %}
 
