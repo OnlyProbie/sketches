@@ -34,7 +34,9 @@
             {% endunless %}
             {% assign name_page = page.title | append: name_page %}
         {% endfor %}
-        
+        <li class="separator"> | </li>
+        <li><a class="fas" aria-hidden="true" href="{{ OnlyProbie }}"></a></li>
+
         {% if site.color_theme == 'auto' %}
         <li class="separator"> | </li>
         <li><a id="theme-toggle" title="{{ page.title }} " aria-label="{{ page.title }}" onclick="themeToggle()"></a></li>
