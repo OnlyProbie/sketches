@@ -36,13 +36,16 @@
             {% assign name_page = page.title | append: name_page %}
         {% endfor %}
 
-        <li class="separator"> | </li>
-        <li><a class="fab fa-github fa-inverse" aria-hidden="true" href="{{ authors.url }}"></a></li>
+
 
         {% if site.color_theme == 'auto' %}
         <li class="separator"> | </li>
         <li><a id="theme-toggle" title="{{ page.title }} " aria-label="{{ page.title }}" onclick="themeToggle()"></a></li>
         {% endif %}
+        <!-- github -->
+        <li class="separator"> | </li>
+        <li><a class="fab fa-github" aria-hidden="true" href="https://github.com/OnlyProbie"></a></li>
+
     </ul>
 
 	</nav>
