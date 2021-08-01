@@ -6,6 +6,23 @@ thumbnail: "assets/img/thumbnails/feature-img/circuit.jpeg"
 tags: [Mermaid, Highlight, Markdown]
 ---
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Search on code](#search-on-code)
+- [Code highlighting examples](#code-highlighting-examples)
+  - [Java](#java)
+  - [HTML](#html)
+  - [Javascript](#javascript)
+  - [Python](#python)
+  - [YAML](#yaml)
+  - [Mermaid](#mermaid)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
+
 
 Because if you put some code in your blog, you would at least make it:
 
@@ -106,7 +123,7 @@ def some_function(param_one="", param_two=0):
 
 class SomeClass:
     """ dunno what I am doing """
-    
+
     def __init__(self):
         pass
 ```

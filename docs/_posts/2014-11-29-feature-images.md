@@ -6,13 +6,24 @@ thumbnail: "assets/img/thumbnails/feature-img/desk-messy.jpeg"
 tags: [Test, Image]
 ---
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Markdown way (bigger)](#markdown-way-bigger)
+- [Aligner with only One (50% of width)](#aligner-with-only-one-50%25-of-width)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
+
 Hopefully you will find enough information about how to set images in your blog here.
-This is an example of a post which includes a feature image specified in the front matter of the post. 
+This is an example of a post which includes a feature image specified in the front matter of the post.
 The feature image spans the full-width of the page, and is shown with the title on permalink pages:
 
 ```yaml
 feature-img: "assets/img/feature-img/desk-messy.jpeg"
-thumbnail: "assets/img/thumbnails/feature-img/desk-messy.jpeg" 
+thumbnail: "assets/img/thumbnails/feature-img/desk-messy.jpeg"
 ```
 
 You can also use a thumbnail, a smaller version of the same image to improve loading of the page.
@@ -33,7 +44,7 @@ It by default look into `assets/img/` so give the path from there, example:
 {% include aligner.html images="pexels/book-glass.jpeg,feature-img/desk-messy.jpeg" %}
 
 
-Here you have two images side by side, but you can set more and set the amount per columns 
+Here you have two images side by side, but you can set more and set the amount per columns
 (by specifying the number of columns or let it be automatic using `"auto"`):
 
 {% highlight ruby %}

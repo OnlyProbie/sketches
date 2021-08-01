@@ -5,7 +5,19 @@ author: mmistakes
 tags: [Highlight, Markdown]
 ---
 
-Syntax highlighting[^1] is a feature that displays source code. 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [GFM Code Blocks](#gfm-code-blocks)
+- [Code Blocks in Lists](#code-blocks-in-lists)
+- [GitHub Gist Embed](#github-gist-embed)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
+
+Syntax highlighting[^1] is a feature that displays source code.
 This feature facilitates writing in a structured language such as a programming language or a markup language as it makes import things visually distinct.
 
 
@@ -76,7 +88,7 @@ Indentation matters. Be sure the indent of the code block aligns with the first 
    print_hi('Tom')
    #=> prints 'Hi, Tom' to STDOUT.
    ```
-        
+
 3. Now you can do this.
 
 ### GitHub Gist Embed
@@ -89,12 +101,12 @@ You can use `defer=true` so that the loading of the gist doesn't prevent the loa
 
 {% highlight html %}
 {% raw %}
-   <script defer=true 
+   <script defer=true
            src="https://gist.github.com/sylhare/dad7ed1ef3d13614c77c4ebadf8a11c3.js">
    </script>
 {% endraw %}
 {% endhighlight %}
 
 
-[^1]: 
+[^1]:
     {% include citation.html key="highlight" %}

@@ -6,6 +6,22 @@ author: sylhare
 excerpt_separator: <!--more-->
 ---
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Using Kramdown GFM <!--more-->](#using-kramdown-gfm---more--)
+  - [Basic Usage](#basic-usage)
+- [Using toc.js](#using-tocjs)
+  - [Customize with toc.js](#customize-with-tocjs)
+    - [Use with this jekyll template](#use-with-this-jekyll-template)
+  - [Basic Usage](#basic-usage-1)
+  - [How it would look like](#how-it-would-look-like)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
+
 # Using Kramdown GFM <!--more-->
 
 <!-- To be placed at the beginning of the post, it is where the table of content will be generated -->
@@ -80,7 +96,7 @@ So you can get a feel of it.
 ![image](https://user-images.githubusercontent.com/20642750/39189661-c22099f2-47a0-11e8-826e-2ec3ef4cc4f4.png)
 
 <script>
-// toc.js 
+// toc.js
 // Copied here for the example, can be placed in assets/js for real use in your template.
 // https://github.com/ghiculescu/jekyll-table-of-contents
 (function($){

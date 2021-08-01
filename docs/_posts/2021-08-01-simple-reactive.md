@@ -23,7 +23,6 @@ class Dep {
   }
 }
 
-
 let deps = new Map()
 
 Object.keys(data).forEach(key => {

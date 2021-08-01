@@ -5,6 +5,37 @@ bootstrap: true
 tags: [Test]
 ---
 
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+    - [
+            Project One
+          ](#project-one)
+    - [
+            Project Two
+          ](#project-two)
+    - [
+            Project Three
+          ](#project-three)
+    - [
+            Project Four
+          ](#project-four)
+    - [
+            Project Five
+          ](#project-five)
+    - [
+            Project Six
+          ](#project-six)
+- [Use bootstrap](#use-bootstrap)
+  - [Snippet example](#snippet-example)
+  - [Mix it with Markdown](#mix-it-with-markdown)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
+
 This theme is compatible with Bootstrap if you choose to use it in your pages or posts.
 Here is a little demo with a code snippet, look at the source to see how the HTML and markdown get tangled.
 
