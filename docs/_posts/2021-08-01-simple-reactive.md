@@ -1,8 +1,10 @@
 ---
 layout: post
-title: Structure
+title: Simple Reactive
 tags: [JavaScript, Markdown]
 ---
+
+**简易响应式数据实现**
 
 ```js
 let data = { price: 5, quanitity: 2 }
