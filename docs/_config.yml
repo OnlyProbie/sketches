@@ -1,5 +1,5 @@
 # SITE CONFIGURATION
-baseurl: "https://blog.archerk.com.cn/"
+baseurl: ""
 url: "https://sylhare.github.io"
 
 # THEME-SPECIFIC CONFIGURATION
