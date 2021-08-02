@@ -22,7 +22,12 @@
     <ul class="hide">
         {% assign name_page = "" %}
         {% assign authors = site.data.authors[include.author] %}
-
+        <!-- blog -->
+        <li class="separator"> | </li>
+        <li>
+            <a class="clear" aria-label="blog" title="blog" href="/">Blog</a>
+        </li>
+        <!-- pages -->
         {% for page in site.pages %}
             {% unless page.title == null or page.hide or name_page contains page.title %}
             <li class="separator"> | </li>
