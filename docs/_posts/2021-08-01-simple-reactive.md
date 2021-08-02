@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Simple Reactive
-tags: [JavaScript, Markdown]
+title: 简易响应式
+tags: [JavaScript]
 ---
 
 **简易响应式数据实现**

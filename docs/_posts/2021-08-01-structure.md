@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Structure
-tags: [Katex, Markdown]
+title: JavaScript 数据结构实现
+tags: [JavaScript]
 ---
 
 
