@@ -1,8 +1,8 @@
 ---
 layout: post
 title: The Pain of Loving You
-feature-img: assets/img/feature-img/story.jpeg              # Add a feature-image to the post
-thumbnail: assets/img/thumbnails/feature-img/the-pain-of-loving-you.jpeg  # Add a thumbnail image on blog view
+feature-img: assets/img/feature-img/the-pain-of-loving-you.jpeg              # Add a feature-image to the post
+thumbnail: assets/img/thumbnails/feature-img/story.jpeg  # Add a thumbnail image on blog view
 tags: [Sketches, English, Love]
 ---
 
