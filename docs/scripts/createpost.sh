@@ -32,7 +32,7 @@ bootstrap: true                                   # Add bootstrap to the page
 tags: [sample, markdown, html]
 ---
 
-** excerpt **
+**excerpt**
 
 <!-- START doctoc -->
 <!-- END doctoc -->
