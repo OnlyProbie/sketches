@@ -1,11 +1,11 @@
 ---
 layout: post
-title: node模块化中一些细节问题 —— 模块的查找                                # Title of the page
+title: node模块化                               # Title of the page
 color: rgb(80,140,22)                             # Add the specified color as feature image, and change link colors in post
 tags: [JavaScript, Node, Module]
 ---
 
-**node 中模块的查找**
+**node中模块的查找**
 
 <!-- START doctoc -->
 <!-- END doctoc -->
