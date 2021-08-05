@@ -1,8 +1,8 @@
 ---
 layout: post
 title: The Pain of Loving You
-feature-img: assets/img/sample.png              # Add a feature-image to the post
-thumbnail: assets/img/thumbnails/sample-th.png  # Add a thumbnail image on blog view
+feature-img: assets/img/the-pain-of-loving-you.jpeg              # Add a feature-image to the post
+thumbnail: assets/img/thumbnails/feature-img/story.jpeg  # Add a thumbnail image on blog view
 tags: [sketches, markdown, love]
 ---
 
@@ -11,9 +11,9 @@ tags: [sketches, markdown, love]
 
 # The Pain of Loving You
 
-> 爱你之痛
+**爱你之痛**
 
-**一首关于爱的情诗**
+> 一首关于爱的情诗
 
 ***Fires run through my body -- the pain of loving you.***
 
