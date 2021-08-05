@@ -21,8 +21,7 @@ else
     # create file
     touch $createPath
     # echo content to file
-    echo "
----
+    echo "---
 layout: post
 title: Hello World                                # Title of the page
 hide_title: true                                  # Hide the title when displaying the post, but shown in lists of posts
@@ -32,6 +31,8 @@ color: rgb(80,140,22)                             # Add the specified color as f
 bootstrap: true                                   # Add bootstrap to the page
 tags: [sample, markdown, html]
 ---
+
+** excerpt **
 
 <!-- START doctoc -->
 <!-- END doctoc -->

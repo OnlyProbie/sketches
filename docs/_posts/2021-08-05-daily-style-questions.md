@@ -1,9 +1,11 @@
 ---
 layout: post
-title: Daily Style Questions                                # Title of the page
+title: 日常样式问题随记                               # Title of the page
 color: rgb(80,140,22)                             # Add the specified color as feature image, and change link colors in post
-tags: [JavaScript, Css, markdown, web]
+tags: [JavaScript, Css, Web]
 ---
+
+**日常样式问题随记**
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -21,8 +23,6 @@ tags: [JavaScript, Css, markdown, web]
   - [flex布局下，子元素内容超出打点省略](#flex%E5%B8%83%E5%B1%80%E4%B8%8B%E5%AD%90%E5%85%83%E7%B4%A0%E5%86%85%E5%AE%B9%E8%B6%85%E5%87%BA%E6%89%93%E7%82%B9%E7%9C%81%E7%95%A5)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-**日常样式问题随记**
 
 # web
 

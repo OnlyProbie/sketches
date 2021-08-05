@@ -5,9 +5,10 @@ tags: [JavaScript]
 ---
 
 
+**简单数据结构的JavaScript实现**
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**简单数据结构的JavaScript实现**
 
 - [数组](#%E6%95%B0%E7%BB%84)
   - [数组定义时，确定数组的长度（数组定长）](#%E6%95%B0%E7%BB%84%E5%AE%9A%E4%B9%89%E6%97%B6%E7%A1%AE%E5%AE%9A%E6%95%B0%E7%BB%84%E7%9A%84%E9%95%BF%E5%BA%A6%E6%95%B0%E7%BB%84%E5%AE%9A%E9%95%BF)
