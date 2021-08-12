@@ -21,6 +21,7 @@ tags: [JavaScript, Css, Web]
   - [布局屏幕适配解决方案](#%E5%B8%83%E5%B1%80%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)
   - [样式冲突问题](#%E6%A0%B7%E5%BC%8F%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98)
   - [flex布局下，子元素内容超出打点省略](#flex%E5%B8%83%E5%B1%80%E4%B8%8B%E5%AD%90%E5%85%83%E7%B4%A0%E5%86%85%E5%AE%B9%E8%B6%85%E5%87%BA%E6%89%93%E7%82%B9%E7%9C%81%E7%95%A5)
+  - [实现1px的边框](#%E5%AE%9E%E7%8E%B01px%E7%9A%84%E8%BE%B9%E6%A1%86)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -198,5 +199,34 @@ Background-position 控制背景图片移动在手机端可能会有效果（卡
   line-height: 40px;
   border: 2px solid #111;
   border-radius: 5px;
+}
+```
+
+## 实现1px的边框
+
+```html
+<div class="border" >按钮</div>
+```
+
+```css
+.border {
+  position: relative;
+  padding: 5px 10px;
+  display: inline-block;
+}
+.border::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: '';
+  display: inline-block;
+  box-sizing: border-box;
+  width: 200%;
+  height: 200%;
+  border: 1px solid #f40;
+  border-radius: 4px;
+  background-color: rgba(0,0,0,0);
+  transform: scale(0.5);
+  transform-origin: left top;
 }
 ```
