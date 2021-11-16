@@ -7,8 +7,15 @@ tags: [JavaScript, Node, Module]
 
 **node中模块的查找**
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [模块的查找](#%E6%A8%A1%E5%9D%97%E7%9A%84%E6%9F%A5%E6%89%BE)
+  - [绝对路径和相对路径](#%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%92%8C%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84)
+  - [关于后缀名](#%E5%85%B3%E4%BA%8E%E5%90%8E%E7%BC%80%E5%90%8D)
+  - [关于文件名](#%E5%85%B3%E4%BA%8E%E6%96%87%E4%BB%B6%E5%90%8D)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## 模块的查找
 
