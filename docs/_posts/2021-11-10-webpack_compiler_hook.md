@@ -1,110 +1,155 @@
 ---
 layout: post
-title: Hello World                                # Title of the page
-hide_title: true                                  # Hide the title when displaying the post, but shown in lists of posts
-feature-img: assets/img/sample.png              # Add a feature-image to the post
-thumbnail: assets/img/thumbnails/sample-th.png  # Add a thumbnail image on blog view
+title: tapable sync hooks                              # Title of the
 color: rgb(80,140,22)                             # Add the specified color as feature image, and change link colors in post
 bootstrap: true                                   # Add bootstrap to the page
-tags: [sample, markdown, html]
+tags: [webpack, markdown, tapable]
 ---
 
-**excerpt**
+**tapable同步钩子简单实现**
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Compiler Hook 执行顺序](#compiler-hook-%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F)
+- [tapable同步钩子简单实现](#tapable%E5%90%8C%E6%AD%A5%E9%92%A9%E5%AD%90%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0)
+  - [SyncHook](#synchook)
+  - [SyncBailHook](#syncbailhook)
+  - [SyncLoopHook](#syncloophook)
+  - [SyncWaterfallHook](#syncwaterfallhook)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Compiler Hook 执行顺序
+## tapable同步钩子简单实现
 
-Compiler environment
-> - 钩子类型： SyncHook
-> -  作用： 设置node环境变量
+### SyncHook
 
-Compiler afterEnvironment
-> - 钩子类型： SyncHook
-> - 作用：设置环境变量完成
+同步钩子，顺序执行注册的钩子
 
-Compiler entryOption
-> - 钩子类型：SyncBailHook
-> - 作用: 解析入口文件
+```js
+class SyncHook {
 
-Compiler afterPlugins
-> - 钩子类型：SyncHook
-> - 作用：挂载插件结束（webpack.config.js上会挂载很多插件）
+  constructor (args) {
+    this._args = args
+    this._taps = []
+  }
 
-Compiler afterResolvers
-> - 钩子类型：SyncHook
-> - 作用：在路径解析器初始化之后触发，核心作用是提供路径，这样就能以此找到绝对路径
+  tap (type, fn) {
+    this._taps.push(fn)
+  }
 
-Compiler initialize
-> - 钩子类型：SyncHook
-> - 作用：当编译器对象被初始化时调用
+  call (...args) {
+    let newArgs = Array.from(args).slice(0, this._args.length)
+    this._taps.forEach(fn => {
+      fn(...newArgs)
+    })
+  }
+}
 
-Compiler beforeRun
-> - 钩子类型：AsyncSeriesHook
-> - 作用：在开始执行一次构建之前调用，compiler.run 方法开始执行后立刻进行调用
+module.exports = SyncHook
+```
 
-Compiler run
-> - 钩子类型：AsyncSeriesHook
-> - 作用：开始编译
+### SyncBailHook
 
-Compiler normalModuleFactory
-> - 钩子类型：SyncHook
-> - 作用： 创建普通模块工厂
+类似于 SyncHook，执行过程中注册的回调返回非 undefined 时就停止不再执行
 
-Compiler contextModuleFactory
-> - 钩子类型：SyncHook
-> - 作用：创建上下文模块工厂
+```js
+class SyncBailHook {
+  constructor (args) {
+    this._args = args
+    this._taps = []
+  }
 
-Compiler beforeCompile
-> - 钩子类型：AsyncSeriesHook
-> - 作用：开始编译前
+  tap (type, fn) {
+    this._taps.push(fn)
+  }
 
-Compiler compile
-> - 钩子类型：SyncHook
-> - 作用：编译，beforeCompile 之后立即调用，但在一个新的 compilation 创建之前。这个钩子不会被复制到子编译器
+  call (...args) {
+    let newArgs = Array.from(args).slice(0, this._args.length)
+    for (let i = 0; i < this._taps.length; i++) {
+      let result = this._taps[i](...newArgs)
+      if (result !== undefined) {
+        break
+      }
+    }
+  }
 
-Compiler thisCompilation
-> - 钩子类型：SyncHook
-> - 作用：开始启动编译
+}
 
-Compiler compilation
-> - 钩子类型：SyncHook
-> - 作用： 创建一个 compilation
+module.exports = SyncBailHook
+```
 
-Compiler make
-> - 钩子类型：AsyncParallelHook
-> - 作用：最核心的代码，从入口文件开始编译
+### SyncLoopHook
 
-Compiler finishMake
-> - 钩子类型：AsyncSeriesHook
-> - 作用：完成编译
+类似 SyncBailHook，在执行过程中回调返回非 undefined 时继续再次执行当前的回调
 
-Compiler afterCompile
-> - 钩子类型：AsyncSeriesHook
-> - 作用：所有的编译完成之后
+```js
+class SyncLoopHook {
+  constructor (args) {
+    this._args = args
+    this._taps = []
+  }
 
-Compiler shouldEmit
-> - 钩子类型：SyncBailHook
-> - 作用：询问是否要生成文件
+  tap (type, fn) {
+    this._taps.push(fn)
+  }
 
-Compiler emit
-> - 钩子类型：AsyncSeriesHook
-> - 作用：生成文件
+  call (...args) {
+    let newArgs = Array.from(args).slice(0, this._args.length)
+    let result = null
+    let length = this._taps.length
+    let i = 0
+    let _loop = false
+    do {
+      _loop = false
+      i = 0
+      do {
+        result = this._taps[i](...newArgs)
+        if (result !== undefined) {
+          _loop = true
+        } else {
+          i++
+        }
+      } while (i < length && !_loop)
+    } while (_loop)
 
-Compiler afterEmit
-> - 钩子类型：AsyncSeriesHook
-> - 作用：资源文件已经生成完成
+  }
 
-Compiler done
-> - 钩子类型：AsyncSeriesHook
-> - 作用：编译完成
+}
 
-Compiler afterDone
-> - 钩子类型：SyncHook
-> - 作用：编译完成之后
+module.exports = SyncLoopHook
+```
+
+### SyncWaterfallHook
+
+接受至少一个参数，上一个注册的回调返回值会作为下一个注册的回调的参数
+
+```js
+class SyncWaterfallHook {
+
+  constructor (args) {
+    this._args = args
+    this._taps = []
+  }
+
+  tap (type, fn) {
+    this._taps.push(fn)
+  }
+
+  call (...args) {
+    if (args.length < 1) {
+      return
+    }
+    let newArgs = Array.from(args).slice(0, this._args.length)
+    let result = null
+    let post = newArgs[0]
+    this._taps.forEach(fn => {
+      result = fn(post, ...newArgs.slice(1))
+      post = result || post
+    })
+  }
+
+}
+
+module.exports = SyncWaterfallHook
+```
 

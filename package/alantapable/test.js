@@ -13,13 +13,16 @@ const {
 } = require('tapable')
 
 let hook = new AsyncParallelHook(['name'])
-let counter1 = 0
-let counter2 = 0
-let counter3 = 0
 
 console.time('cost');
 
+
 // 同步
+
+// let counter1 = 0
+// let counter2 = 0
+// let counter3 = 0
+
 // hook.tap('sync', (args1, args2) => {
 //   console.log('sync ==> : ', args1, args2)
 //   if (++counter1 === 3) {
@@ -95,7 +98,6 @@ hook.callAsync('ahonn', () => {
 //     }
 //   }
 // }
-
 
 // var _loop;
 // do {

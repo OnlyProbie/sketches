@@ -4,24 +4,24 @@
 class SyncLoopHook {
   constructor (args) {
     this._args = args
-    this._callbackList = []
+    this._taps = []
   }
 
   tap (type, fn) {
-    this._callbackList.push(fn)
+    this._taps.push(fn)
   }
 
   call (...args) {
     let newArgs = Array.from(args).slice(0, this._args.length)
     let result = null
-    let length = this._callbackList.length
+    let length = this._taps.length
     let i = 0
     let _loop = false
     do {
       _loop = false
       i = 0
       do {
-        result = this._callbackList[i](...newArgs)
+        result = this._taps[i](...newArgs)
         if (result !== undefined) {
           _loop = true
         } else {

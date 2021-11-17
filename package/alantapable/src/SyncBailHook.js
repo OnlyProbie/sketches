@@ -4,17 +4,17 @@
 class SyncBailHook {
   constructor (args) {
     this._args = args
-    this._callbackList = []
+    this._taps = []
   }
 
   tap (type, fn) {
-    this._callbackList.push(fn)
+    this._taps.push(fn)
   }
 
   call (...args) {
     let newArgs = Array.from(args).slice(0, this._args.length)
-    for (let i = 0; i < this._callbackList.length; i++) {
-      let result = this._callbackList[i](...newArgs)
+    for (let i = 0; i < this._taps.length; i++) {
+      let result = this._taps[i](...newArgs)
       if (result !== undefined) {
         break
       }

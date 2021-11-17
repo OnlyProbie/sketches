@@ -5,16 +5,16 @@ class SyncHook {
 
   constructor (args) {
     this._args = args
-    this._callbackList = []
+    this._taps = []
   }
 
   tap (type, fn) {
-    this._callbackList.push(fn)
+    this._taps.push(fn)
   }
 
   call (...args) {
     let newArgs = Array.from(args).slice(0, this._args.length)
-    this._callbackList.forEach(fn => {
+    this._taps.forEach(fn => {
       fn(...newArgs)
     })
   }
