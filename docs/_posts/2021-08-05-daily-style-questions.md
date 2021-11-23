@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 日常样式问题随记                               # Title of the page
+title: daily style questions                               # Title of the page
 color: rgb(80,140,22)                             # Add the specified color as feature image, and change link colors in post
 tags: [JavaScript, Css, Web]
 ---

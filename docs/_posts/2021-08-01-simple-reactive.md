@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 简易响应式
+title: simple reactive
 tags: [JavaScript]
 ---
 

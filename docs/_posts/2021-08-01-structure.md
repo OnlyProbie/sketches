@@ -1,6 +1,6 @@
 ---
 layout: post
-title: JavaScript 数据结构实现
+title: JavaScript data structure implementation
 tags: [JavaScript]
 ---
 

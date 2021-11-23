@@ -1,6 +1,6 @@
 ---
 layout: post
-title: node模块化                               # Title of the page
+title: node modularity                               # Title of the page
 color: rgb(80,140,22)                             # Add the specified color as feature image, and change link colors in post
 tags: [JavaScript, Node, Module]
 ---
