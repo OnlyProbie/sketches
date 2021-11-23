@@ -18,6 +18,7 @@ class SyncHook {
       fn(...newArgs)
     })
   }
+
 }
 
 module.exports = SyncHook
