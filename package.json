@@ -4,7 +4,8 @@
   "description": "[![Build](https://github.com/sylhare/Type-on-Strap/actions/workflows/jekyll-build.yml/badge.svg)](https://github.com/sylhare/Type-on-Strap/actions/workflows/jekyll-build.yml) [![Gem Version](https://badge.fury.io/rb/type-on-strap.svg)](https://badge.fury.io/rb/type-on-strap) [![Docker Pulls](https://img.shields.io/docker/pulls/sylhare/type-on-strap)](https://hub.docker.com/r/sylhare/type-on-strap)",
   "scripts": {
     "create": "sh docs/scripts/createpost.sh",
-    "doctoc": "doctoc ./docs/_posts"
+    "doctoc": "doctoc ./docs/_posts",
+    "docserve": "cd docs/ && bundle exec jekyll serve"
   },
   "keywords": [],
   "author": "",

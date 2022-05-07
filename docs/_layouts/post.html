@@ -30,6 +30,10 @@ layout: default
   {% capture tag_list %}{{ page.tags | join: "|"}}{% endcapture %}
   {% include default/tags_list.html tags=tag_list %}
 
+  <div style="position:fixed; right: 50px; bottom: 20px">
+    返回顶部
+  </div>
+
 </article>
 
 <!-- Post navigation -->
@@ -54,18 +58,18 @@ layout: default
       background-repeat: no-repeat;
       background-position: center;
   }
-  
+
   {% if page.color %}
   .feature-image a { color: {{ page.color }} !important; }
   div#post-nav a { color: {{ page.color }} !important; }
   footer a { color: {{ page.color }} !important; }
   .site-header nav a:hover {  color: {{ page.color }} !important; }
-  header#main { 
+  header#main {
       background-color: {{ page.color }} !important;
       background-image: url('{{ site.color_image | relative_url }}');
   }
   {% endif %}
-  
+
   {% if page.feature-img %}
   header#main { background-image: url('{{ page.feature-img | relative_url }}'); }
   {% endif %}

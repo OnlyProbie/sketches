@@ -46,7 +46,7 @@ class AsyncSeriesHook {
   }
 
   callAsync (...args) {
-    let newArgs = Array.from(args.slice(0, this._taps.length))
+    let newArgs = Array.from(args).slice(0, this._args.length)
     this._taps.forEach(_tap => {
       if (_tap.call) {
         _tap.call(...newArgs)
