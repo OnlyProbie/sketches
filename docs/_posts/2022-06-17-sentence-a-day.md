@@ -4,7 +4,7 @@ title: 每天进步1%                               # Title of the page
 hide_title: true                                  # Hide the title when displaying the post, but shown in lists of posts
 color: rgb(80,140,22)                             # Add the specified color as feature image, and change link colors in post
 bootstrap: true                                   # Add bootstrap to the page
-tags: [sample, markdown, html]
+tags: [GoodSentence]
 ---
 
 **拿破仑曾说过：“人与人之间只有很小的差距，但是这种很小的差距，却造成了巨大的差异”。**
