@@ -6,8 +6,6 @@ bootstrap: true                                   # Add bootstrap to the page
 tags: [GoodSentence]
 ---
 
-**excerpt**
-
 <!-- START doctoc -->
 <!-- END doctoc -->
 
