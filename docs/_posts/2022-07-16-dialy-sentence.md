@@ -6,6 +6,8 @@ bootstrap: true                                   # Add bootstrap to the page
 tags: [GoodSentence]
 ---
 
+**痛而不言，笑而不语，迷而不失，惊而不乱**
+
 <!-- START doctoc -->
 <!-- END doctoc -->
 
@@ -22,4 +24,4 @@ tags: [GoodSentence]
 > 人有感情，寸步难行
 
 
-**痛而不言，笑而不语，迷而不失，惊而不乱**
+
