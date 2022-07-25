@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>user</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/user.css">
+</head>
+<body>
+  <section>
+    <article class="wrapper-article">
+      <article class="left-article"><img src="/img/icon.gif" /></article>
+      <article class="right-article">
+        <div>欢迎 <%- userInfo.login %> 登录!</div>
+        <div class="avatar-title">
+          <% if (userInfo.avatar_url) { %>
+            <img class="avatar" src="<%- userInfo.avatar_url %>" />
+          <% } else { %>
+            <img class="avatar" src="/img/avatar.jpeg" />
+          <%}%>
+          <% if (userInfo.name && userInfo.email) { %>
+            <div class="title">姓名：<%- userInfo.name %></div>
+            <div class="title">email: <%- userInfo.email %></div>
+          <%}%>
+        </div>
+      </article>
+    </article>
+  </section>
+</body>
+</html>
