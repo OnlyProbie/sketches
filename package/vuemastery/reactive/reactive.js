@@ -71,10 +71,19 @@ function ref (raw) {
   return r
 }
 
+function computed(getter) {
+  let result = ref()
+  effect(() => {
+    result.value = getter()
+  })
+  return result
+}
+
 module.exports = {
   reactive,
   ref,
   effect,
   track,
-  trigger
+  trigger,
+  computed
 }
