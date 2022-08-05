@@ -32,14 +32,14 @@ router.get('/loginGitHub', async ctx => {
 // 处理重定向请求
 router.get('/callback/github', async ctx => {
   const { code } = ctx.query
-
+  console.log('授权码 ====> ', code)
   // 请求访问令牌
   const resData = await axios.post(getTokenUrl, {
     client_id: clientId,
     client_secret: clientSecret,
     code
   })
-  // console.log('access_token ===> ', qs.parse(resData.data))
+  console.log('访问令牌请求返回 ===> ', qs.parse(resData.data))
   const accessToken = qs.parse(resData.data).access_token
 
   // 获取用户信息
@@ -51,7 +51,7 @@ router.get('/callback/github', async ctx => {
 
   // 同步用户信息
   userInfo = userInfoData.data
-  // console.log('user_info ====> ', userInfo)
+  console.log('获取用户信息返回 ====> ', userInfo)
 
   // 重定向到用户页面
   ctx.redirect('/user')

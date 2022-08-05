@@ -1,7 +1,7 @@
 // import axios from 'axios'
 
 // 获取授权码地址
-const getCodeUrl = 'https://github.com/login/oauth/authorize?client_id=675882c46a375958dd8b&redirect_uri=http://127.0.0.1:3000/callback/github/uccess'
+const getCodeUrl = 'https://github.com/login/oauth/authorize?client_id=675882c46a375958dd8b&redirect_uri=http://127.0.0.1:3000/callback/github'
 // 获取访问令牌地址
 const getTokenUrl = 'https://github.com/login/oauth/access_token'
 // GitHub生成的客户端ID
