@@ -4,5 +4,5 @@
 console.log(process.platform)
 console.log(process.env)
 
-
+console.log(require.extensions)
 

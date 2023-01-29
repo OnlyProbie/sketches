@@ -42,7 +42,12 @@ export default {
         getEvents.results.value = null
       }
     })
-    return { getEvents, searchInput }
+    watch(getEvents.results, () => {
+      if (getEvents.results.value) {
+        count.value = getEvents.results.value
+      }
+    })
+    return { getEvents, searchInput, count }
   }
 }
 </script>
