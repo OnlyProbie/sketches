@@ -1,5 +1,3 @@
-
-
 const fs = require('fs')
 const path = require('path')
 
@@ -10,7 +8,7 @@ async function exists (filename) {
   // const buffer = Buffer.from('hello', 'utf-8')
   try {
     const result = await fs.promises.stat(filename)
-    // console.log(result)
+    console.log(result)
     return true
   } catch (err) {
     // 文件不存在
@@ -22,7 +20,7 @@ async function exists (filename) {
 }
 
 async function test () {
-  const result = await exists(dirname)
+  const result = await exists(filename)
   if (result) {
     console.log('目录已经存在！')
   } else {
