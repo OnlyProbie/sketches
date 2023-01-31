@@ -2,7 +2,11 @@ lockfileVersion: 5.4
 
 specifiers:
   lodash: ^4.17.21
+  lodash-es: ^4.17.21
   vite: ^4.0.4
+
+dependencies:
+  lodash-es: registry.npmjs.org/lodash-es/4.17.21
 
 devDependencies:
   lodash: registry.npmjs.org/lodash/4.17.21
@@ -316,6 +320,12 @@ packages:
     dependencies:
       has: registry.npmjs.org/has/1.0.3
     dev: true
+
+  registry.npmjs.org/lodash-es/4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/lodash-es/-/lodash-es-4.17.21.tgz}
+    name: lodash-es
+    version: 4.17.21
+    dev: false
 
   registry.npmjs.org/lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz}
