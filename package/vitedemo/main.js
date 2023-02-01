@@ -1,9 +1,15 @@
-import counter from "./counter";
+// import counter from "./counter";
 
-function getUserInfo () {
-  console.log('/// import meta ', import.meta.env)
-}
+import "./App.vue"
+import "./index.css"
 
-getUserInfo()
 
-console.log('counter', counter)
+console.log('main.js //////////')
+
+// function getUserInfo () {
+//   console.log('/// import meta ', import.meta.env)
+// }
+
+// getUserInfo()
+
+// console.log('counter', counter)
