@@ -3,16 +3,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require("terser-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
   mode: 'development',
   entry: {
+    vendor: ['react', 'react-dom'],
     index: './src/index.js',
     login: './src/login.js'
   },
   output: {
     path:path.join(__dirname, 'dist'),
-    filename: '[name].[hash:8].js'   // hash chunkHash contentHash
+    filename: '[name].[hash:8].js',   // hash chunkHash contentHash
+    publicPath: '/' // 根路径
   },
   // devServer 启动之后所有的文件都会写到内存里
   devServer: {
@@ -54,9 +57,11 @@ module.exports = {
   ],
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin({
-      parallel: true, // 开启多进程并行压缩
-      cache: true // 缓存
-    })]
+    minimizer: [
+      new TerserPlugin({
+        parallel: true // 开启多进程并行压缩
+      }),
+      new CssMinimizerPlugin()
+    ]
   }
 }
