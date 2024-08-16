@@ -1,0 +1,32 @@
+{
+  "name": "alantapable-t",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "OnlyProbie <onlyprobie@gmail.com>",
+  "homepage": "https://github.com/OnlyProbie/sketches#readme",
+  "license": "ISC",
+  "main": "lib/alantapable-t.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "http://npm.intra.xiaojukeji.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OnlyProbie/sketches.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/alantapable-t.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/OnlyProbie/sketches/issues"
+  },
+  "dependencies": {
+    "tapable": "^2.2.1"
+  }
+}
