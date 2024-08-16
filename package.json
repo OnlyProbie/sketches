@@ -5,7 +5,9 @@
     "packages/*"
   ],
   "scripts": {
-
+    "createdoc": "sh docs/scripts/createpost.sh",
+    "doctoc": "doctoc ./docs/_posts",
+    "docserve": "cd docs/ && bundle exec jekyll serve"
   },
   "dependencies": {},
   "devDependencies": {
